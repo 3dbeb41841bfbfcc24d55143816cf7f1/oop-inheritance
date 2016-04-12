@@ -6,9 +6,7 @@ Previous Lesson: https://github.com/ATL-WDI-Curriculum/oop-intro
 - Define inheritance in the context of OOP
 - Write a Ruby class that inherits from another
 
-
-
-## Inheritance
+#Framing (5 / 5)
 
 Just like we get traits from our parents, we can use a feature called
 **inheritance** to create multiple classes (children) that share properties and
@@ -18,57 +16,62 @@ You won't need to write parent / child classes much in this class, but we will
 use inheritance to give some of our classes additional functionality, especially
 with rails in a few weeks.
 
-Here's an example:
+#Diagram(200px-Calling_super_in_ruby.jpg)
+
+
+#Information Dive (5 / 10)
+
+For the next 5 minutes, research what OOP Inheritance Is.
+
+http://rubylearning.com/satishtalim/ruby_inheritance.html
+
+Read first 3 paragraphs
+
+#T&T (5 / 15)
+
+Now, turn & talk to your neighbor and discuss:
+
+At a high level, what is inheritance and how might it be useful?
+Why is inheritance for DRY'ing up your code?
+Why is inheritance important for making better code?
+
+#Here's an example:
 ```ruby
-# person7.rb: inheritance
-
 class Person
-  attr_accessor :name
-  attr_reader :hunger_level
 
-  def initialize(initial_name, initial_hunger_level)
-    @name = initial_name
-    @hunger_level = initial_hunger_level
+  def initialize(name, age)
+    @name = name
+    @age = age
   end
 
-  def introduction
-    puts "Hello, I'm #{name}"
-  end
-
-  # Custom setter for hunger_level
-  def hunger_level=(new_hunger_level)
-    if new_hunger_level < 0
-      @hunger_level = 0
-    else
-      @hunger_level = new_hunger_level
+    def to_s
+      "#{@name} is #{@age} years old."
     end
-  end
-
 end
 
-class LoudPerson < Person
-  def introduction
-    puts "HELLO, I'M #{name.upcase}!!"
+  class SuperHero < Person
+    def initialize(name, age, superpower)
+      super(name, age)
+      @superpower = superpower
+    end
+    def to_s
+    "#{@name} is #{@age} years old and has the superpower #{@superpower}"
   end
 end
 
-jill = Person.new("Jill", 10)
-bob = LoudPerson.new("Bob", 10)
 
-puts jill.introduction
-puts
+wade = Person.new("Wade", 28)
+DeadPool = SuperHero.new("Wade Willson", 28, "Healing")
 
-puts bob.introduction
+puts "person #{wade.to_s}"
+puts "person #{DeadPool.to_s}"
 
-puts "Bob's name: '#{bob.name}'"
-bob.hunger_level = 5
-puts "Bob hunger level: #{bob.hunger_level}"
-```
+
 
 ### You Do: Inheritance
 
-- Make a sleepy person, who sleeps through the introduction.
-- Make a baby, who can only say "Dada" and is always hungry (hunger_level never reaches 0)
+- Make a person, then give them the super power you wish you had, display your heros power.
+- Make a villian from person and give them a power and assign them an arch nemesis(hero).
 
 
 
@@ -78,14 +81,18 @@ When discussing object-oriented programming, you may hear the term "visibility".
 
 - Public: any one can call this method.  Public is default accessibility level for class methods.
 - Private and Protected: (not common) Not visible to other objects from other classes.  Control visibility to other instances of that Class, including descendants.
+ Privacy
+By default, any method you define in Ruby (and most other languages too) is public. This means that anything outside of the object can call any of the methods, with the exception of initialize which is always private and can only be called by new.
+
+Besides public you can also have private and protected methods.
+
+-public can be called by anyone
+-private can only be called from within the class
+-protected can only be called by objects of the class and the defining subclasses
+
+#Let’s try this out in the superhero's class by adding the protected keyword before defining the methods we want to protect, in our case, secert identity.
 
 
-## Sample Questions
-
-- Explain the use of self in Ruby
-- Explain the difference between local, instance and class variables
-- Define and differentiate between class and instance methods
--
 
 ## Vocabulary
 
@@ -101,6 +108,6 @@ When discussing object-oriented programming, you may hear the term "visibility".
 
 ## Resources
 
-- Getters and Setters: http://andrewsunglaekim.github.io/Get-set-ruby/
+- inheritance: http://rubylearning.com/satishtalim/ruby_inheritance.html
 - Visibility http://stackoverflow.com/questions/9882754/what-are-the-differences-between-private-public-and-protected-methods
 - Private/Protected http://matthodan.com/2010/08/08/ruby-private-methods-vs-protected-methods.html
