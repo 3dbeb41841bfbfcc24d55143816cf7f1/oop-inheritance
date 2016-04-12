@@ -16,7 +16,7 @@ You won't need to write parent / child classes much in this class, but we will
 use inheritance to give some of our classes additional functionality, especially
 with rails in a few weeks.
 
-#Diagram(200px-Calling_super_in_ruby.jpg)
+[Diagram](200px-Calling_super_in_ruby.jpg)
 
 
 #Information Dive (5 / 10)
