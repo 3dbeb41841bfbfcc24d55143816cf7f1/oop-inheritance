@@ -16,14 +16,14 @@ You won't need to write parent / child classes much in this class, but we will
 use inheritance to give some of our classes additional functionality, especially
 with rails in a few weeks.
 
-[Diagram](https://github.com/ATL-WDI-Curriculum/oop-inheritance/blob/master/200px-Calling_super_in_ruby.jpg)
+![Calling Super](images/200px-Calling_super_in_ruby.jpg)
 
 
 #Information Dive (5 / 10)
 
 For the next 5 minutes, research what OOP Inheritance Is.
 
-http://rubylearning.com/satishtalim/ruby_inheritance.html
+[Ruby Inheritance](http://rubylearning.com/satishtalim/ruby_inheritance.html)
 
 Read first 3 paragraphs
 
@@ -36,6 +36,7 @@ Why is inheritance for DRY'ing up your code?
 Why is inheritance important for making better code?
 
 #Here's an example:
+
 ```ruby
 class Person
 
@@ -59,22 +60,17 @@ end
   end
 end
 
-
 wade = Person.new("Wade", 28)
-DeadPool = SuperHero.new("Wade Willson", 28, "Healing")
+deadPool = SuperHero.new("Wade Willson", 28, "Healing")
 
 puts "person #{wade.to_s}"
-puts "person #{DeadPool.to_s}"
+puts "person #{deadPool.to_s}"
 ```
-
-
 
 ### You Do: Inheritance
 
 - Make a person, then give them the super power you wish you had, display your heros power.
 - Make a villian from person and give them a power and assign them an arch nemesis(hero).
-
-
 
 ## Visibility
 
@@ -92,7 +88,6 @@ Besides public you can also have private and protected methods.
 -protected can only be called by objects of the class and the defining subclasses
 
 #Let’s try this out in the superhero's class by adding the protected keyword before defining the methods we want to protect, in our case, secert identity.
-
 
 
 ## Vocabulary
